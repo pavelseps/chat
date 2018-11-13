@@ -1,18 +1,33 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 bg-dark vh-100">
+                <RoomList></RoomList>
+            </div>
+            <div class="col-md-9 bg-light vh-100">
+                <router-view/>
+            </div>
+        </div>
+
+        <UserNameModal></UserNameModal>
+    </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+    import RoomList from '../components/RoomList';
+    import UserNameModal from '../components/modals/UserName';
 
-export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+    export default {
+        name: 'Home',
+        components: {
+            RoomList,
+            UserNameModal,
+        }
+    }
 </script>
+
+<style scoped>
+    .vh-100{
+        height: 100vh;
+    }
+</style>

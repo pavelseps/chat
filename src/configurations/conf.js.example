@@ -1,0 +1,4 @@
+export default {
+    baseUrl: "https://my.url/api/v1/",
+    bearer: "bearer-code"
+}
