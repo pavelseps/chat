@@ -1,5 +1,5 @@
 # ignore config file
-configurations/conf.js
+src/configurations/conf.js
 
 .DS_Store
 node_modules
