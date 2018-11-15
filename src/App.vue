@@ -1,8 +1,6 @@
 <template>
   <div id="app">
       <Home></Home>
-      <!--TODO add popup for name-->
-      <!--TODO loader-->
   </div>
 </template>
 

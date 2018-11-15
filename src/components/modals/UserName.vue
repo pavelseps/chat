@@ -46,6 +46,14 @@
                     this.$cookie.set('chat-username', this.name, { expires: '1M' });
                     this.visible = false;
                 }
+            },
+            changeUsername(){
+                let username = this.$cookie.get('chat-username');
+                this.name = '';
+                if(username !== null){
+                    this.name = username;
+                }
+                this.visible = true;
             }
         }
     }

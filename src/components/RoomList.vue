@@ -1,7 +1,13 @@
 <template>
-    <div>
-        <h2 class="text-light">Seznam místností</h2>
-        <!--TODO update rooms-->
+    <div class="room-list" :class="{'responsive-visible': responsive.visible}">
+        <div class="clearfix">
+            <div class="float-right text-light reload">
+                <font-awesome-icon icon="redo"  @click="updateRooms()"/>
+            </div>
+            <div class="float-left">
+                <h2 class="text-light">Seznam místností</h2>
+            </div>
+        </div>
         <ul class="list-group">
             <li
                     v-for="room in rooms"
@@ -18,7 +24,10 @@
         name: 'RoomList',
         data(){
             return {
-                rooms: []
+                rooms: [],
+                responsive: {
+                    visible: false
+                }
             }
         },
         created(){
@@ -62,7 +71,7 @@
                 }
 
                 if(this.$route.name === 'Chat'){
-                    this.$router.replace({name: 'ChatDefault'}); //TODO fix me
+                    this.$router.replace({name: 'ChatDefault'});
                 }
 
                 this.$router.push({name: 'Chat', params: {
@@ -70,6 +79,9 @@
                         roomName: roomName
                     }});
 
+            },
+            setResponsiveVisibility(val){
+                this.responsive.visible = val;
             }
         }
     }
@@ -79,6 +91,26 @@
     .list-group{
         li{
             cursor: pointer;
+        }
+    }
+
+    .reload{
+        cursor: pointer;
+        font-size: 1.2rem;
+        margin-top: 8px;
+    }
+
+    .room-list{
+        @media (max-width: 767px) {
+            overflow: hidden;
+            height: 0;
+            transition: all linear 0.3s;
+            overflow-y: auto;
+
+            &.responsive-visible{
+                height: 40vh;
+                padding-bottom: 1rem;
+            }
         }
     }
 </style>
