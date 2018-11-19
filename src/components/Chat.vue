@@ -1,6 +1,6 @@
 <template>
     <div class="chat" :class="{'small': responsive.small}">
-        <h1 class="pt-2 pb-2 border-bottom"><font-awesome-icon icon="bars" size="lg" @click="toggleRooms"/> Výtejte v místnosti {{$route.params.roomName}}</h1>
+        <h1 class="pt-2 pb-2 border-bottom"><font-awesome-icon icon="bars" size="lg" @click="toggleRooms"/> Vítejte v místnosti {{$route.params.roomName}}</h1>
         <History
                 @send-to="message += $event"
                 ref="history"
