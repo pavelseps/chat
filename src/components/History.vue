@@ -107,7 +107,11 @@
                 return false;
             },
             isMentioned(text){
-                return text.indexOf('@'+this.$cookie.get('chat-username')) > -1;
+                if(typeof text === "string"){
+                    return text.indexOf('@'+this.$cookie.get('chat-username')) > -1;
+                }
+
+                return false;
             },
             addUnsentHistory(data){
                 this.unsentMessages.push(data);
